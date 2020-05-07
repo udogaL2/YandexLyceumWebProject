@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+    <div class="sidebar">
+        <div class="Name">
+            <div class="logo"></div>
+            <br>
+            <div class="companyName">OnlyProjects</div>
+        </div>
+        <div class="menu">
+            <a class="link" href="/home">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-74_icon-icons.com_60249.ico" alt="">
+                <div class="menu_str">Главная</div>
+            </a>
+            <a class="link" href="/projects">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-62_icon-icons.com_60212.ico" alt="">
+                <div class="menu_str">Проекты</div>
+            </a>
+            <a class="link" href="/create">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-71_icon-icons.com_60239.ico" alt="">
+                <div class="menu_str">Загрузить проект</div>
+            </a>
+            {% if current_user.title == 'admin' %}
+                <a class="link" href="/post">
+                    <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-71_icon-icons.com_60239.ico" alt="">
+                    <div class="menu_str">Админ</div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="content">
+        <p class="hello">Страница не найдена</p>
+    </div>
+</div>
+{% endblock %}
+

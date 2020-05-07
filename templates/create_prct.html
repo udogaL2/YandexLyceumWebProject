@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="main">
+    <div class="sidebar">
+        <div class="Name">
+            <div class="logo"></div>
+            <br>
+            <div class="companyName">OnlyProjects</div>
+        </div>
+        <div class="menu">
+            <a class="link" href="/home">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-74_icon-icons.com_60249.ico" alt="">
+                <div class="menu_str">Главная</div>
+            </a>
+            <a class="link" href="/projects">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-62_icon-icons.com_60212.ico" alt="">
+                <div class="menu_str">Проекты</div>
+            </a>
+            <a class="link" href="/create">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-71_icon-icons.com_60239.ico" alt="">
+                <div class="menu_str">Загрузить проект</div>
+            </a>
+            {% if current_user.title == 'admin' %}
+                <a class="link" href="/post">
+                    <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-71_icon-icons.com_60239.ico" alt="">
+                    <div class="menu_str">Админ</div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="content">
+        {% if current_user.is_authenticated %}
+        <h2>Загрузить проекта</h2>
+        {% if message != "" %}
+            <div class="error">
+                <img src="../static/img/error.ico" alt="">
+                <h5>{{message}}</h5>
+            </div>
+        {% endif %}
+        <form class="create_box" method="post" enctype="multipart/form-data">
+            <p>&#10148;&nbsp;Введите название проекта</p>
+            <input class="title" name="title" type="text" placeholder="Название проекта" maxlength=20><hr class="create_hr">
+            <p>&#10148;&nbsp;Выбирите обложку проекта</p>
+            <input type="file" class="title_img" name="title_img" accept="image/jpeg"><hr class="create_hr">
+            <p>&#10148;&nbsp;Введите короткое описание проекта</p>
+            <textarea class="min_desc" name="comment" maxlength=180 placeholder="макс.&nbsp;180&nbsp;символов"></textarea><hr class="create_hr">
+            <p>&#10148;&nbsp;Введите полное описание проекта</p>
+            <textarea class='full_desc' name="description" maxlength=500 placeholder="макс.&nbsp;500&nbsp;символов"></textarea><hr class="create_hr">
+            <p>&#10148;&nbsp;Добавьте фото в галерею в формате jpg(макс.10 фото)</p>
+            <input type="file" class="photo" name="photo[]" min="0" max="10" multiple accept="image/jpeg">
+            <input class="create" type="submit" value="Создать">
+        </form>
+        {% else %}
+        <p class="hello">Для загрузки проекта необходимо пройти авторизацию.</p>
+        {% endif %}
+    </div>
+    </div>
+{% endblock %}

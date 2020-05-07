@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sing in</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+
+<body>
+
+    <form class="box" method="post">
+        <h1>Вход в аккаунт</h1>
+            {% if message != "" %}
+                <error>
+                    <img src="../static/img/error.ico" alt="">
+                    <h5>{{message}}</h5>
+                </error>
+            {% endif %}
+        <input type="text" name="login" placeholder="Логин">
+        <input type="password" name="password" placeholder="Пароль">
+        <input type="submit" name="" value="Войти">
+        <div class="bottom-text">
+          Нет аккаунта? <a href="/registration">Зарегистрироваться</a>
+        </div>
+        <a class="back" href="/">Назад</a>
+    </form>
+
+
+</body>
+
+</html>

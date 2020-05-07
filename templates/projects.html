@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main">
+    <div class="sidebar">
+        <div class="Name">
+            <div class="logo"></div>
+            <br>
+            <div class="companyName">OnlyProjects</div>
+        </div>
+        <div class="menu">
+            <a class="link" href="/home">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-74_icon-icons.com_60249.ico" alt="">
+                <div class="menu_str">Главная</div>
+            </a>
+            <a class="link" href="/projects">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-62_icon-icons.com_60212.ico" alt="">
+                <div class="menu_str">Проекты</div>
+            </a>
+            <a class="link" href="/create">
+                <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-71_icon-icons.com_60239.ico" alt="">
+                <div class="menu_str">Загрузить проект</div>
+            </a>
+            {% if current_user.title == 'admin' %}
+                <a class="link" href="/post">
+                    <img class="img" src="../static/ico/construction_project_plan_building_architect_design_develop-71_icon-icons.com_60239.ico" alt="">
+                    <div class="menu_str">Админ</div>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="content">
+        <h2 style="text-align: center;">{{title}}</h2>
+        {% if projects[0] and current_user.is_authenticated%}
+            {% for prct in projects %}
+                <div class="block">
+                    <img class="main_img" src="../static/projects/{{prct.directory}}/{{prct.directory}}_title_img.jpg" alt="photo">
+                    <div class="text">
+                        <p class="H1">{{ prct.name }}
+                        {% if prct.condition == 'considers' %}
+                        <text title="Проект находится на рассмотрении">*</text></p>
+                        {% endif %}
+                        <hr class="prct_hr">
+                        <hr class="prct_hr">
+                        <p class="disc">{{ prct.min_disc }}</p>
+                        {% if current_user.id == prct.author or current_user.title == 'admin'%}
+                            <a href="/delete/{{ prct.id }}" style="padding-top: 5px;">Удалить проект</a>
+                        {% endif %}
+                        <a href="/project/{{ prct.id }}" class="btn_go">
+                            <img src="../static/ico/rightarrow_79765.ico" alt="arrow" class="arrow">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            {% if current_user.is_authenticated %}
+                <h2>Проекты не найдены.</h2>
+            {% else %}
+                <h2>Вы не авторизированы!</h2>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

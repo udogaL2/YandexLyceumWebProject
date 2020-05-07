@@ -1,0 +1,140 @@
+@font-face {
+    font-family: Huntsman;
+    src: url('../fonts/Huntsman.otf');
+}
+
+@font-face {
+    font-family: Exo;
+    src: url('../fonts/Exo.otf');
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans.ttf');
+}
+
+.main {
+    width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sidebar {
+    min-height: 60vh;
+    width: 380px;
+    background-color: #ecf0f1;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.sidebar .Name {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.sidebar .logo {
+    width: 50px;
+    height: 50px;
+    background: url('/static/img/origami-logo.svg') no-repeat;
+    background-size: contain;
+}
+
+.sidebar .companyName {
+    font-family: Huntsman, sans-serif;
+}
+
+.sidebar .menu {
+    height: 240px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.sidebar .link {
+    width: 100px;
+    max-width: 100px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-left: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 8px;
+    padding-right: 45%;
+    border: 2px solid #3498db;
+    background-color: #f5f6fa;
+    border-right: none;
+    border-radius: 5px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    align-items: center;
+}
+
+.sidebar .img {
+    height: 30px;
+    margin-right: 15px;
+}
+
+.sidebar .menu_str {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Exo, sans-serif;
+}
+
+.content {
+    display: flex;
+    min-height: 60vh;
+    width: 780px;
+    box-shadow: inset 1.5px 2.6px 5px 0 rgba(0, 0, 0, 0.1);
+    background-color: #bdc3c7;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+
+.project_info {
+    margin: 20px 15px;
+    margin-bottom: 0;
+}
+.project_info .project_title {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+.project_title_img img {
+    max-width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+}
+.project_info .project_title_name {
+    font-family: Exo, sans-serif;
+    font-size: 24px;
+}
+.project_info .project_info_description {
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    word-break: break-all;
+    margin: 0;
+}
+.gallery {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    padding: 5%;
+}
+.title_gallery {
+    font-family: Exo, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.gallery img {
+    max-width: 195px;
+}
