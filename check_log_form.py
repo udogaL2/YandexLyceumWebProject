@@ -1,6 +1,5 @@
 from data import db_session
 from data.users import User
-from werkzeug.security import generate_password_hash
 
 
 def check_user(form):
