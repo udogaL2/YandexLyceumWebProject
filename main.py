@@ -124,7 +124,7 @@ def project(id):
 @app.route('/project/<project>/<int:img>')
 def image(project, img):
     return f'''
-            <img src="../../static/projects/{project}/{{project.directory}}_photo_{img}.jpg" alt="Изображение не найдено">
+            <img src="/static/projects/{project}/{{project.directory}}_photo_{img}.jpg" alt="Изображение не найдено">
             '''
 
 
